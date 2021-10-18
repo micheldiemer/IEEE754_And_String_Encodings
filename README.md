@@ -13,13 +13,13 @@ For IEEE754 numbers we have sign, biased or unbiased exponent and mantisssa
     and special values : nan inf +0 -0 and more
     
 The same 64 bit values can mean a lot of different things :
-    * unsigned long long value from 0 to 2^64 - 1
-    * signed long long value from 6 2^63 to 2^63 - 1
-    * 2 utf-32 characters
-    * 8 ascii caracters
-    * 1 IEEE754 64 bits double (float with double precision)
-    * 2 IEEE754 32 bits floats
-    * ... and more
+* unsigned long long value from 0 to 2^64 - 1
+* signed long long value from 6 2^63 to 2^63 - 1
+* 2 utf-32 characters
+* 8 cp1252 / latin_1 characters
+* 1 IEEE754 64 bits double (float with double precision)
+* 2 IEEE754 32 bits floats
+* ... and more
     
 Both programs aim at taking some binary (or string) input, 
 packing it into bytes
