@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module float_IEEE754</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>float_IEEE754</strong></big></big> (version 0.1.beta)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cmichel%5Cdesktop%5Cvalueasencoding%5Cfloat_ieee754.py">c:\users\michel\desktop\valueasencoding\float_ieee754.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="bitarray.html">bitarray</a><br>
+<a href="copy.html">copy</a><br>
+</td><td width="25%" valign=top><a href="decimal.html">decimal</a><br>
+<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="struct.html">struct</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#float">builtins.float</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="float_IEEE754.html#float_IEEE754">float_IEEE754</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="float_IEEE754">class <strong>float_IEEE754</strong></a>(<a href="builtins.html#float">builtins.float</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#float_IEEE754">float_IEEE754</a>(value,&nbsp;nbits,&nbsp;forcePositive=False)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="float_IEEE754.html#float_IEEE754">float_IEEE754</a></dd>
+<dd><a href="builtins.html#float">builtins.float</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="float_IEEE754-__getitem__"><strong>__getitem__</strong></a>(self, index)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-__init__"><strong>__init__</strong></a>(self, value, nbits=64)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-abs"><strong>abs</strong></a>(value)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-as_int_tuple"><strong>as_int_tuple</strong></a>()</dt></dl>
+
+<dl><dt><a name="float_IEEE754-fromBitarray"><strong>fromBitarray</strong></a>(value, byteOrder: str = 'little-endian')</dt></dl>
+
+<dl><dt><a name="float_IEEE754-fromBytes"><strong>fromBytes</strong></a>(value, nbits=64, byteOrder: str = 'little-endian')</dt></dl>
+
+<dl><dt><a name="float_IEEE754-fromString"><strong>fromString</strong></a>(value, nbits=64, base=2, forcePositive=False, byteOrder: str = 'little-endian')</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isCanonical"><strong>isCanonical</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isFinite"><strong>isFinite</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isInfinite"><strong>isInfinite</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isNaN"><strong>isNaN</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isNormal"><strong>isNormal</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isSignMinus"><strong>isSignMinus</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isSignaling"><strong>isSignaling</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isSubnormal"><strong>isSubnormal</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-isZero"><strong>isZero</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-nanPayload"><strong>nanPayload</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-newFromBitReverse"><strong>newFromBitReverse</strong></a>(self, bit)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-newFromBitSet"><strong>newFromBitSet</strong></a>(self, index, value, byteOrder: str = 'little-endian')</dt></dl>
+
+<dl><dt><a name="float_IEEE754-new_from_int_tuple"><strong>new_from_int_tuple</strong></a>(ftuple, byteOrder: str = 'little-endian')</dt></dl>
+
+<dl><dt><a name="float_IEEE754-radix"><strong>radix</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-totalOrder"><strong>totalOrder</strong></a>(x, y)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-totalOrderMag"><strong>totalOrderMag</strong></a>(x, y)</dt></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="float_IEEE754-__new__"><strong>__new__</strong></a>(self, value, nbits, forcePositive=False)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;object.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>SIGN_MINUS</strong> = '-'</dl>
+
+<dl><dt><strong>SIGN_PLUS</strong> = ''</dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#float">builtins.float</a>:<br>
+<dl><dt><a name="float_IEEE754-__abs__"><strong>__abs__</strong></a>(self, /)</dt><dd><tt><a href="#float_IEEE754-abs">abs</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__add__"><strong>__add__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self+value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__bool__"><strong>__bool__</strong></a>(self, /)</dt><dd><tt>self&nbsp;!=&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__ceil__"><strong>__ceil__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;the&nbsp;ceiling&nbsp;as&nbsp;an&nbsp;Integral.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__divmod__"><strong>__divmod__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;divmod(self,&nbsp;value).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__eq__"><strong>__eq__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__float__"><strong>__float__</strong></a>(self, /)</dt><dd><tt><a href="builtins.html#float">float</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__floor__"><strong>__floor__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;the&nbsp;floor&nbsp;as&nbsp;an&nbsp;Integral.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__floordiv__"><strong>__floordiv__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self//value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__format__"><strong>__format__</strong></a>(self, format_spec, /)</dt><dd><tt>Formats&nbsp;the&nbsp;<a href="builtins.html#float">float</a>&nbsp;according&nbsp;to&nbsp;format_spec.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__ge__"><strong>__ge__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;=value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><tt>Return&nbsp;getattr(self,&nbsp;name).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__getnewargs__"><strong>__getnewargs__</strong></a>(self, /)</dt></dl>
+
+<dl><dt><a name="float_IEEE754-__gt__"><strong>__gt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&gt;value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__hash__"><strong>__hash__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;hash(self).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__int__"><strong>__int__</strong></a>(self, /)</dt><dd><tt>int(self)</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__le__"><strong>__le__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;=value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__lt__"><strong>__lt__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self&lt;value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__mod__"><strong>__mod__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self%value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__mul__"><strong>__mul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self*value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__ne__"><strong>__ne__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self!=value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__neg__"><strong>__neg__</strong></a>(self, /)</dt><dd><tt>-self</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__pos__"><strong>__pos__</strong></a>(self, /)</dt><dd><tt>+self</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__pow__"><strong>__pow__</strong></a>(self, value, mod=None, /)</dt><dd><tt>Return&nbsp;pow(self,&nbsp;value,&nbsp;mod).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__radd__"><strong>__radd__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value+self.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rdivmod__"><strong>__rdivmod__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;divmod(value,&nbsp;self).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rfloordiv__"><strong>__rfloordiv__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value//self.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rmod__"><strong>__rmod__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value%self.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rmul__"><strong>__rmul__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value*self.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__round__"><strong>__round__</strong></a>(self, ndigits=None, /)</dt><dd><tt>Return&nbsp;the&nbsp;Integral&nbsp;closest&nbsp;to&nbsp;x,&nbsp;rounding&nbsp;half&nbsp;toward&nbsp;even.<br>
+&nbsp;<br>
+When&nbsp;an&nbsp;argument&nbsp;is&nbsp;passed,&nbsp;work&nbsp;like&nbsp;built-in&nbsp;round(x,&nbsp;ndigits).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rpow__"><strong>__rpow__</strong></a>(self, value, mod=None, /)</dt><dd><tt>Return&nbsp;pow(value,&nbsp;self,&nbsp;mod).</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rsub__"><strong>__rsub__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value-self.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__rtruediv__"><strong>__rtruediv__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;value/self.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__sub__"><strong>__sub__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self-value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__truediv__"><strong>__truediv__</strong></a>(self, value, /)</dt><dd><tt>Return&nbsp;self/value.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__trunc__"><strong>__trunc__</strong></a>(self, /)</dt><dd><tt>Return&nbsp;the&nbsp;Integral&nbsp;closest&nbsp;to&nbsp;x&nbsp;between&nbsp;0&nbsp;and&nbsp;x.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-as_integer_ratio"><strong>as_integer_ratio</strong></a>(self, /)</dt><dd><tt>Return&nbsp;integer&nbsp;ratio.<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;pair&nbsp;of&nbsp;integers,&nbsp;whose&nbsp;ratio&nbsp;is&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;original&nbsp;<a href="builtins.html#float">float</a><br>
+and&nbsp;with&nbsp;a&nbsp;positive&nbsp;denominator.<br>
+&nbsp;<br>
+Raise&nbsp;OverflowError&nbsp;on&nbsp;infinities&nbsp;and&nbsp;a&nbsp;ValueError&nbsp;on&nbsp;NaNs.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;(10.0).<a href="#float_IEEE754-as_integer_ratio">as_integer_ratio</a>()<br>
+(10,&nbsp;1)<br>
+&gt;&gt;&gt;&nbsp;(0.0).<a href="#float_IEEE754-as_integer_ratio">as_integer_ratio</a>()<br>
+(0,&nbsp;1)<br>
+&gt;&gt;&gt;&nbsp;(-.25).<a href="#float_IEEE754-as_integer_ratio">as_integer_ratio</a>()<br>
+(-1,&nbsp;4)</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-conjugate"><strong>conjugate</strong></a>(self, /)</dt><dd><tt>Return&nbsp;self,&nbsp;the&nbsp;complex&nbsp;conjugate&nbsp;of&nbsp;any&nbsp;<a href="builtins.html#float">float</a>.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-hex"><strong>hex</strong></a>(self, /)</dt><dd><tt>Return&nbsp;a&nbsp;hexadecimal&nbsp;representation&nbsp;of&nbsp;a&nbsp;floating-point&nbsp;number.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;(-0.1).<a href="#float_IEEE754-hex">hex</a>()<br>
+'-0x1.999999999999ap-4'<br>
+&gt;&gt;&gt;&nbsp;3.14159.<a href="#float_IEEE754-hex">hex</a>()<br>
+'0x1.921f9f01b866ep+1'</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-is_integer"><strong>is_integer</strong></a>(self, /)</dt><dd><tt>Return&nbsp;True&nbsp;if&nbsp;the&nbsp;<a href="builtins.html#float">float</a>&nbsp;is&nbsp;an&nbsp;integer.</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="builtins.html#float">builtins.float</a>:<br>
+<dl><dt><a name="float_IEEE754-__getformat__"><strong>__getformat__</strong></a>(typestr, /)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>You&nbsp;probably&nbsp;don't&nbsp;want&nbsp;to&nbsp;use&nbsp;this&nbsp;function.<br>
+&nbsp;<br>
+&nbsp;&nbsp;typestr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Must&nbsp;be&nbsp;'double'&nbsp;or&nbsp;'<a href="builtins.html#float">float</a>'.<br>
+&nbsp;<br>
+It&nbsp;exists&nbsp;mainly&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;Python's&nbsp;test&nbsp;suite.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;whichever&nbsp;of&nbsp;'unknown',&nbsp;'IEEE,&nbsp;big-endian'&nbsp;or&nbsp;'IEEE,<br>
+little-endian'&nbsp;best&nbsp;describes&nbsp;the&nbsp;format&nbsp;of&nbsp;floating&nbsp;point&nbsp;numbers&nbsp;used&nbsp;by&nbsp;the<br>
+C&nbsp;type&nbsp;named&nbsp;by&nbsp;typestr.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-__set_format__"><strong>__set_format__</strong></a>(typestr, fmt, /)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>You&nbsp;probably&nbsp;don't&nbsp;want&nbsp;to&nbsp;use&nbsp;this&nbsp;function.<br>
+&nbsp;<br>
+&nbsp;&nbsp;typestr<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Must&nbsp;be&nbsp;'double'&nbsp;or&nbsp;'<a href="builtins.html#float">float</a>'.<br>
+&nbsp;&nbsp;fmt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Must&nbsp;be&nbsp;one&nbsp;of&nbsp;'unknown',&nbsp;'IEEE,&nbsp;big-endian'&nbsp;or&nbsp;'IEEE,&nbsp;little-endian',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;in&nbsp;addition&nbsp;can&nbsp;only&nbsp;be&nbsp;one&nbsp;of&nbsp;the&nbsp;latter&nbsp;two&nbsp;if&nbsp;it&nbsp;appears&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match&nbsp;the&nbsp;underlying&nbsp;C&nbsp;reality.<br>
+&nbsp;<br>
+It&nbsp;exists&nbsp;mainly&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;Python's&nbsp;test&nbsp;suite.<br>
+&nbsp;<br>
+Override&nbsp;the&nbsp;automatic&nbsp;determination&nbsp;of&nbsp;C-level&nbsp;floating&nbsp;point&nbsp;type.<br>
+This&nbsp;affects&nbsp;how&nbsp;floats&nbsp;are&nbsp;converted&nbsp;to&nbsp;and&nbsp;from&nbsp;binary&nbsp;strings.</tt></dd></dl>
+
+<dl><dt><a name="float_IEEE754-fromhex"><strong>fromhex</strong></a>(string, /)<font color="#909090"><font face="helvetica, arial"> from <a href="builtins.html#type">builtins.type</a></font></font></dt><dd><tt>Create&nbsp;a&nbsp;floating-point&nbsp;number&nbsp;from&nbsp;a&nbsp;hexadecimal&nbsp;string.<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;<a href="builtins.html#float">float</a>.<a href="#float_IEEE754-fromhex">fromhex</a>('0x1.ffffp10')<br>
+2047.984375<br>
+&gt;&gt;&gt;&nbsp;<a href="builtins.html#float">float</a>.<a href="#float_IEEE754-fromhex">fromhex</a>('-0x1p-1074')<br>
+-5e-324</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#float">builtins.float</a>:<br>
+<dl><dt><strong>imag</strong></dt>
+<dd><tt>the&nbsp;imaginary&nbsp;part&nbsp;of&nbsp;a&nbsp;complex&nbsp;number</tt></dd>
+</dl>
+<dl><dt><strong>real</strong></dt>
+<dd><tt>the&nbsp;real&nbsp;part&nbsp;of&nbsp;a&nbsp;complex&nbsp;number</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-floatIEEE754vsPythonFloat"><strong>floatIEEE754vsPythonFloat</strong></a>(f754)</dt></dl>
+ <dl><dt><a name="-frexp"><strong>frexp</strong></a>(x, /)</dt><dd><tt>Return&nbsp;the&nbsp;mantissa&nbsp;and&nbsp;exponent&nbsp;of&nbsp;x,&nbsp;as&nbsp;pair&nbsp;(m,&nbsp;e).<br>
+&nbsp;<br>
+m&nbsp;is&nbsp;a&nbsp;<a href="builtins.html#float">float</a>&nbsp;and&nbsp;e&nbsp;is&nbsp;an&nbsp;int,&nbsp;such&nbsp;that&nbsp;x&nbsp;=&nbsp;m&nbsp;*&nbsp;2.**e.<br>
+If&nbsp;x&nbsp;is&nbsp;0,&nbsp;m&nbsp;and&nbsp;e&nbsp;are&nbsp;both&nbsp;0.&nbsp;&nbsp;Else&nbsp;0.5&nbsp;&lt;=&nbsp;abs(m)&nbsp;&lt;&nbsp;1.0.</tt></dd></dl>
+ <dl><dt><a name="-isfinite"><strong>isfinite</strong></a>(x, /)</dt><dd><tt>Return&nbsp;True&nbsp;if&nbsp;x&nbsp;is&nbsp;neither&nbsp;an&nbsp;infinity&nbsp;nor&nbsp;a&nbsp;NaN,&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+ <dl><dt><a name="-isnan"><strong>isnan</strong></a>(x, /)</dt><dd><tt>Return&nbsp;True&nbsp;if&nbsp;x&nbsp;is&nbsp;a&nbsp;NaN&nbsp;(not&nbsp;a&nbsp;number),&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+ <dl><dt><a name="-test"><strong>test</strong></a>()</dt></dl>
+ <dl><dt><a name="-usage"><strong>usage</strong></a>()</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__copyright__</strong> = 'Copyright 2021, Pthon float_IEEE754'<br>
+<strong>__email__</strong> = 'pub.diemer@laposte.net'<br>
+<strong>__maintainer__</strong> = 'Michel Diemer'<br>
+<strong>__status__</strong> = 'Development'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Michel&nbsp;Diemer</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Credits</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">['Michel&nbsp;Diemer']</td></tr></table>
+</body></html>
