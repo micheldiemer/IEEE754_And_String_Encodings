@@ -10,7 +10,7 @@ from math import frexp, isnan, isfinite
 __author__ = 'Michel Diemer'
 __copyright__ = 'Copyright 2021, Pthon float_IEEE754'
 __credits__ = ['Michel Diemer']
-__version__ = '0.1.beta'
+__version__ = '0.2.beta'
 __maintainer__ = 'Michel Diemer'
 __email__ = 'pub.diemer@laposte.net'
 __status__ = 'Development'
@@ -38,8 +38,9 @@ class float_IEEE754(float):
     }
 
     def fromString(value, nbits=64, base=2, forcePositive=False,
-                   byteOrder: str = sys.byteorder + '-endian'):
+                    byteOrder: str = sys.byteorder + '-endian'):
 
+        byteOrder = "big-endian"
         botb = float_IEEE754.__bytesOrders[byteOrder]['tb']
         bop = float_IEEE754.__bytesOrders[byteOrder]['p']
 
@@ -56,13 +57,23 @@ class float_IEEE754(float):
             nbits = 32
         else:
             nbits = 64
-        nbytes = ((x.bit_length() + nbits - 1) // nbits) * 8
-        bf = x.to_bytes(nbytes, botb)
+        bits_required = x.bit_length()
+        while(bits_required % 8 != 0):
+            bits_required += 1
+        xbytes = bits_required // 8
+        nbytes = nbits // 8
+        bf = x.to_bytes(xbytes, botb)
+        while(len(bf) < nbytes):
+            # TODO test endianess
+            bf.append(b'\x00')
+        # bfb = x.to_bytes(nbytes, 'big')
+        # bfl = x.to_bytes(nbytes, 'little')
+
         lf = struct.unpack(bop+float_IEEE754.__desc[nbits]['unpack'], bf)[0]
-        return float_IEEE754(lf, nbits)
+        return float_IEEE754(lf,nbits)
 
     def fromBytes(value, nbits=64,
-                  byteOrder: str = sys.byteorder + '-endian'):
+                    byteOrder: str = sys.byteorder + '-endian'):
         # Create float_IEEE754 from bytes
 
         # TODO exception if len(bytes) != 8*nbits
@@ -71,7 +82,7 @@ class float_IEEE754(float):
         return float_IEEE754(lf[0], nbits)
 
     def fromBitarray(value,
-                     byteOrder: str = sys.byteorder + '-endian'):
+                        byteOrder: str = sys.byteorder + '-endian'):
         # Create float_IEEE754 from bitarray
         return float_IEEE754.fromBytes(value.tobytes(), len(value), byteOrder)
 
@@ -81,11 +92,23 @@ class float_IEEE754(float):
         return super().__new__(self, value)
 
 
-    def __init__(self, value, nbits = 64):
+    def __init__(self, value, nbits = 64, base = 2):
         # new instance
         float.__init__(value)
 
         self.nbits=nbits if nbits in self.__desc else 64
+        self.base = base
+        self.p = 53   # TODO support other formats
+        self.emin = 1
+        self.emax = 1023
+
+        # formula (-1)^S x b^e x m
+        #   emin <= e <= emax
+        #   0 <= m < b
+
+        # formula (-1)^S x b^q x c
+        #   emin <= q + p - 1 <= emax
+        #   0 <= c < b^p
 
         self.__fmt=self.__desc[self.nbits]
         packed=struct.pack('!'+self.__fmt['unpack'], value)
@@ -127,7 +150,7 @@ class float_IEEE754(float):
         self.NaN=self.rawExp.all() and self.rawMantissa.any()
         self.signalingNaN=self.NaN and self.rawMantissa[0] == 0
         self.quietNaN=self.NaN and self.rawMantissa[0] == 1
-        self.finite=self.zero or (not self.inifinity and not self.NaN)
+        self.finite=self.zero or (not self.infinity and not self.NaN)
 
         # TODO is this correct ?
         self.canonical=not self.NaN or self.signalingNaN or not self.rawMantissa[1:].any(
@@ -141,11 +164,11 @@ class float_IEEE754(float):
         # TODO why +1 here ??? It give correct results
         #      but I don't understand it very well
         self.exp=self.intRawExp - self.expBias + 1
-        if self.inifinity or self.NaN or self.zero:
+        if self.infinity or self.NaN or self.zero:
             self.exp=0
 
 
-        if self.inifinity:
+        if self.infinity:
             # TODO verify mantissa value for Inf/NaN
             self.mantissaExpr='inf'
             self.bmantissa=self.rawMantissa
@@ -180,8 +203,8 @@ class float_IEEE754(float):
         self.bitstring += '_' + str(self.rawMantissa)[10:-2]
 
 
-    def as_int_tuple():
-        return tuple(self.nbits, self.rawSign.ba2int(), self.rawExp.ba2int(), self.rawMantissa.ba2int())
+    def as_int_tuple(self):
+        return tuple(self.nbits, self.rawSign, bitarray.util.ba2int(self.rawExp), bitarray.util.ba2int(self.rawMantissa))
 
     def __getitem__(self, index):
         # get bit at position index
@@ -214,7 +237,7 @@ class float_IEEE754(float):
 
 
     def newFromBitSet(self, index, value,
-                      byteOrder: str=sys.byteorder + '-endian'):
+                        byteOrder: str=sys.byteorder + '-endian'):
         # deepcopies internal bitarray, set one bit and gives new instance
         if self.__bitarray[index] == value:
             return self
@@ -329,10 +352,10 @@ def floatIEEE754vsPythonFloat(f754):
     if f754.isNaN() and f754.isFinite():
         return False
 
-    if f754.isNaN() and f754.infinite:
+    if f754.isNaN() and f754.infinity:
         return False
 
-    if f754.isFinite() and f754.infinite:
+    if f754.isFinite() and f754.infinity:
         return False
 
     if isnan(fPython) and f754.isNaN():
@@ -375,7 +398,7 @@ def test():
     for i in range(4):
         for j in range(4):
             if (i == 0 and j == 0):
-               v=0
+                v=0
             elif (i == 0):
                 v=2.0 ** (-j)
             else:
@@ -411,7 +434,7 @@ def test():
     for i in range(4):
         for j in range(4):
             if (i == 0 and j == 0):
-               v=0
+                v=0
             elif (i == 0):
                 v=2.0 ** (-j)
             else:
@@ -432,24 +455,37 @@ def usage():
     print('    0fnnnnnnnn      : float value')
     print('    0innnnnnnn      : int value (64 bits float)')
     print('    --test          : test')
+    print('')
+    print('python.exe .\float_IEEE754.py 0i1024 0i1023 working')
     sys.exit()
 
 if __name__ == '__main__':
 
     for arg in sys.argv[1:]:
+        showFloat = False
         if re.match('^0b', arg):
-            f=float_IEEE754.fromstring(arg[2:], len(arg)-2)
+            f=float_IEEE754.fromString(arg[2:], len(arg)-2)
+            showFloat = True
         elif re.match('^0f', arg):
             f=float_IEEE754(float(arg[2:]), 64)
+            showFloat = True
         elif re.match('^0x', arg):
-            f=float_IEEE754(float(arg[2:]), (len(arg)-2)*8, 16)
+            nbits = (len(arg[2:]) - 2) * 8
+            f=float_IEEE754.fromString(arg[2:],nbits=nbits,base=16)
+            showFloat = True
         elif re.match('^0i', arg):
             f=float_IEEE754(float(arg[2:]), 64, 10)
+            showFloat = True
         elif arg == "--test":
+            test()
+        elif arg == "--compare":
             test()
         else:
             usage()
 
+        if showFloat:
+            print(f.bitstring)
+            #print(f.as_int_tuple())
 
     if len(sys.argv) == 1:
         usage()
