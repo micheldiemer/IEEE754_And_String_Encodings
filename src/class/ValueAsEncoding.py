@@ -4,6 +4,7 @@ import struct
 import base64
 import enum
 import copy
+import encodings
 
 __author__ = 'Michel Diemer'
 __copyright__ = 'Copyright 2021, Pthon float_IEEE754'
@@ -25,10 +26,10 @@ class ValueImportFormats(enum.Enum):
 
 
 class ValueAsEncoding:
-    '''Import raw values according to one of the ValueImportFormats
-       Reencode the raw value in different formats
-       Uses struct.pack, base64.decodebytes and string.encode to import bytes
-       Uses struct.unpack, base64.eencodebytes and string.decode to decode bytes'''
+    ''' Import raw values according to one of the ValueImportFormats
+        Reencode the raw value in different formats
+        Uses struct.pack, base64.decodebytes and string.encode to import bytes
+        Uses struct.unpack, base64.eencodebytes and string.decode to decode bytes'''
 
     __encodings = tuple(['ascii', 'utf_8', 'utf_16', 'utf_32',
                         'cp1252', 'latin_1', 'iso8859_15', 'mac_roman'])
@@ -41,8 +42,8 @@ class ValueAsEncoding:
         'big-endian': {'p': '>', 'tb': 'big'},
         'network':  {'p': '!', 'tb': 'big'}  # big-e,dian
     }
-    """List of ByteOrders and format values for struct.pack (key 'p')
-       and int.to_bytes (key 'tb')"""
+    """ List of ByteOrders and format values for struct.pack (key 'p')
+        and int.to_bytes (key 'tb')"""
 
     #           Int   Float  Str
     #  8 bits ? b B          ascii cp1252 hex mac_roman
@@ -57,8 +58,8 @@ class ValueAsEncoding:
         64: {'ints': {'int': 'q', 'uint': 'Q'}, 'float': 'd'},
         'all': {'encs': __encodings, 'hex': '', 'base64': '', 'bigint': ''}
     }
-    """List of formats in which data is decoded
-       chuncks uf 8 bits/16 bits/32 bits/64 bits as well as full packed data"""
+    """ List of formats in which data is decoded
+        chuncks uf 8 bits/16 bits/32 bits/64 bits as well as full packed data"""
 
     """
     TODO unit tests / make sure it is robust
@@ -72,25 +73,24 @@ class ValueAsEncoding:
         namereplace - inserts a \\N{...} escape sequence instead of unencodable unicode"""
 
     def __init__(self,
-                 strValue: str = '',
-                 fmt=ValueImportFormats.STR,
-                 strEncoding: str = 'utf_8',
-                 byteOrder: str = sys.byteorder + '-endian'):
+                strValue: str = '',
+                fmt=ValueImportFormats.STR,
+                strEncoding: str = 'utf_8',
+                byteOrder: str = sys.byteorder + '-endian'):
         '''Creates bytes from a string value and interprets these bytes according to various formats
 
-           Parameters
-           ----------
-              strValue     : raw string value to import of type string
-              fmt          : format of raw value
-              strEncoding  : if raw value is ValueImportFormats.STR, string encoding
-              byteOrder    : see __bytesOrders above
+            Parameters
+            ----------
+                strValue     : raw string value to import of type string
+                fmt          : format of raw value
+                strEncoding  : if raw value is ValueImportFormats.STR, string encoding
+                byteOrder    : see __bytesOrders above
 
-           Process
-           -------
-              Translates strValue as bytes
-              Retranslates bytes as various formats
-              Public methods are available
-
+            Process
+            -------
+                Translates strValue as bytes
+                Retranslates bytes as various formats
+                Public methods are available
         '''
 
         # default values
@@ -130,8 +130,8 @@ class ValueAsEncoding:
         return self.__reEncoded.keys()
 
     def __packInt(self, value, signed=False):
-        '''Wrapper for int.to_bytes
-             taking care of the sign and number of bits required'''
+        ''' Wrapper for int.to_bytes
+            taking care of the sign and number of bits required'''
         #fmt = 'B' if nBits <= 8 else 'H' if nBits <= 16 else 'L' if nBits <= 32 else 'Q' if nBits <= 64 else 'P'
         # return struct.pack(bytesOrder[bo]['p']+fmt, value)
         nbytes = ((value.bit_length() + 7) // 8)
@@ -194,8 +194,8 @@ class ValueAsEncoding:
                     self.__strEncoding, self.__strEncodeErrors)
 
     def __unpackBytes(self):
-        '''Creates the self.__reEncoded attribute being used by __get_item__
-           see __init__'''
+        ''' Creates the self.__reEncoded attribute being used by __get_item__
+            see __init__'''
 
         # empy dictionnary
         o = dict()
@@ -330,10 +330,10 @@ if __name__ == '__main__':
 
         if re.match('^0b', arg):
             value = int(arg[2:], 2)
-            vae = ValueAsEncoding(int(arg[2:], 2), ValueImportFormats.BIN)
+            vae = ValueAsEncoding(arg[2:], ValueImportFormats.BIN)
         elif re.match('^0x', arg):
             value = int(arg[2:], 16)
-            vae = ValueAsEncoding(int(arg[2:], 16), ValueImportFormats.HEX)
+            vae = ValueAsEncoding(arg[2:], ValueImportFormats.HEX)
         elif re.match('^0f', arg):
             value = float(arg[2:])
             vae = ValueAsEncoding(float(arg[2:]), ValueImportFormats.FLOAT)
